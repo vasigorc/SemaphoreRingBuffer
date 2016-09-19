@@ -1,0 +1,24 @@
+group 'ca.vgorcinschi'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+task wrapper(type: Wrapper){
+    gradleVersion='2.14'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+if (!hasProperty('mainClass')) {
+    ext.mainClass = 'ca.vgorcinschi.ringBuffer.AppRunner'
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}
